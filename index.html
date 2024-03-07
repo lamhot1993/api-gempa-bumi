@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gempa Bumi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rippleui@1.12.1/dist/css/styles.css" />
+
+    <!-- And -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-start">
+            <a class="navbar-item" href=".">Data Gempa Bumi</a>
+        </div>
+        <div class="navbar-end">
+            <a class="navbar-item" href="terbaru.html">Terbaru</a>
+        </div>
+    </div>
+    <br>
+    <div id="app">
+        <center>
+            <span class="badge badge-primary">{{title}}</span>
+            <div class="divider"></div>
+            <div v-if="loading" class="spinner-dot-intermittent"></div>
+            <br>
+        </center>
+        <center v-for="data in gempa_bumi">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-header">{{data.Wilayah}}</h2>
+                    <p class="text-content2">{{data.Potensi}}</p>
+                    <div class="card-footer">
+                        <button class="btn-secondary btn">Kedalaman : {{data.Kedalaman}}</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </center>
+    </div>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
